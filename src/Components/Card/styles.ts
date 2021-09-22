@@ -6,7 +6,7 @@ type TypeProps = {
   type: 'positive' | 'negative' | 'total';
 }
 
-export const Container = styled.View<CardProps>`
+export const Container = styled.View<TypeProps>`
     background-color: ${({ theme, type }) => type === 'total' ? theme.colors.secondary : theme.colors.shape};
     width: ${RFValue(300)}px;
     height: ${RFValue(200)}px;
