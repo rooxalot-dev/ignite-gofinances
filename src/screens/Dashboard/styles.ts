@@ -40,5 +40,26 @@ export const CardContainer = styled.ScrollView.attrs({
   contentContainerStyle: { paddingLeft: 24 },
 })`
   width: 100%;
-  margin-top: ${RFValue(-150)}px;
+  position: absolute;
+  z-index: 5;
+  margin-top: ${RFValue(140)}px;
+`;
+
+export const TransactionContainer = styled.View`
+  flex: 1;
+  padding: 0 ${RFValue(24)}px;
+  margin-top: ${RFPercentage(14)}px;
+`;
+
+export const Title = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.medium};
+  font-size: ${RFValue(18)}px;
+  color: ${({ theme }) => theme.colors.title};
+`;
+
+export const TransactionList = styled.FlatList.attrs({
+  showsVerticalScrollIndicator: false,
+})`
+  width: 100%;
+  margin-top: ${RFValue(16)}px;
 `;
