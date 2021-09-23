@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Category } from '../../models/Category';
 import { 
   Container, 
   TransactionTitle, 
@@ -15,7 +16,7 @@ type TransactionCardProps = {
   type: 'positive' | 'negative',
   title: string;
   value: string;
-  category: string;
+  category: Category;
   date: string;
 };
 
@@ -29,12 +30,15 @@ const TransactionCard: React.FC<TransactionCardProps> = ({
   return (
     <Container>
       <TransactionTitle>{title}</TransactionTitle>
-      <TransactionValue type={type}>{value}</TransactionValue>
+      <TransactionValue type={type}>
+        { type === 'negative' && '- ' }
+        { value }
+      </TransactionValue>
 
       <TransactionFooter>
         <TransactionCategory>
-          <TransactionCategoryIcon name="dollar-sign"/>
-          <TransactionCategoryTitle>{category}</TransactionCategoryTitle>
+          <TransactionCategoryIcon name={category.icon}/>
+          <TransactionCategoryTitle>{category.name}</TransactionCategoryTitle>
         </TransactionCategory>
 
         <TransactionDate>{date}</TransactionDate>

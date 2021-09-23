@@ -12,7 +12,7 @@ export const Container = styled.View<TypeProps>`
     height: ${RFValue(200)}px;
     padding: ${RFValue(18)}px ${RFValue(24)}px;
     margin-right: ${RFValue(16)}px;
-    border-radius: 6px;
+    border-radius: 4px;
 `;
 
 export const CardHeader = styled.View`
