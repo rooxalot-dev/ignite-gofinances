@@ -24,7 +24,7 @@ export const Card: React.FC<CardProps> = ({ type, title, value, description }: C
       iconName = 'arrow-up-circle'
       break;
     case 'negative':
-      iconName = 'arrow-up-circle'
+      iconName = 'arrow-down-circle'
       break;
     default:
       iconName = 'dollar-sign'
