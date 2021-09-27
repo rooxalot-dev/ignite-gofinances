@@ -1,13 +1,15 @@
 import React from 'react';
+import { Input } from '../../Components/Forms/Input';
+import { OutlineButton } from '../../Components/Forms/OutlineButton';
+import { Button } from '../../Components/Forms/Button';
+
 import { 
   Container,
   Header,
   Title,
   Form,
-  Input,
-  Button,
+  Fields,
   ButtonIcon,
-  ButtonText,
   DropdownWrapper,
   Dropdown,
   DropdownItem,
@@ -31,28 +33,34 @@ export const Register: React.FC = () => {
       </Header>
 
       <Form>
-        <Input placeholder="Nome"/>
-        <Input placeholder="Preço"/>
+        <Fields>
+          <Input placeholder="Nome"/>
+          <Input placeholder="Preço"/>
 
-        <TypeWrapper>
-          <Button onPress={() => {}}>
-            <ButtonIcon type="positive" name="arrow-up-circle" />
-            <ButtonText>Income</ButtonText>
-          </Button>
+          <TypeWrapper>
+            <OutlineButton 
+              title="Income" 
+              icon={() => <ButtonIcon type="positive" name="arrow-up-circle" /> }
+              onPress={() => {}} 
+            />
 
-          <Button onPress={() => {}}>
-            <ButtonIcon type="negative" name="arrow-down-circle" />
-            <ButtonText>Outcome</ButtonText>
-          </Button>
-        </TypeWrapper>
+            <OutlineButton 
+              title="Outcome" 
+              icon={() => <ButtonIcon type="negative" name="arrow-down-circle" /> }
+              onPress={() => {}} 
+            />
+          </TypeWrapper>
 
-        <DropdownWrapper>
-          <Dropdown itemStyle={{ backgroundColor: 'red' }}>
-            {
-              categories.map(category => <DropdownItem key={category} label={category} value={category} />)
-            }
-          </Dropdown>
-        </DropdownWrapper>
+          <DropdownWrapper>
+            <Dropdown itemStyle={{ backgroundColor: 'red' }}>
+              {
+                categories.map(category => <DropdownItem key={category} label={category} value={category} />)
+              }
+            </Dropdown>
+          </DropdownWrapper>
+        </Fields>
+
+        <Button title="Enviar" />
       </Form>
     </Container>
   );
