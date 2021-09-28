@@ -1,11 +1,16 @@
 import React from 'react';
+import { TouchableOpacityProps } from 'react-native';
 
 import { Container, Category, Icon } from './styles';
 
-export const CategorySelect: React.FC = () => {
+type CategorySelectProps = TouchableOpacityProps & {
+  category: string;
+};
+
+export const CategorySelect: React.FC<CategorySelectProps> = ({category = '', ...rest}: CategorySelectProps) => {
   return (
-    <Container>
-      <Category>Categoria</Category>
+    <Container {...rest}>
+      <Category>{ category === '' ? 'Categoria' : category}</Category>
       <Icon name="chevron-down" />
     </Container>
   );

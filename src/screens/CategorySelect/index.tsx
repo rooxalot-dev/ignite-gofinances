@@ -27,12 +27,11 @@ export const CategorySelect: React.FC<CategorySelectProps> = ({
   const [selectedCategory, setSelectedCategory] = useState(category);
 
   const handleChangeCategory = (category: Category) => {
-    setSelectedCategory(category.key);
-    setCategory(category);
+    setSelectedCategory(category.name);
   }
 
   const handleSelectCategory = () => {
-    const category = categories.find((category) => category.key === selectedCategory);
+    const category = categories.find((category) => category.name === selectedCategory);
     setCategory(category as Category);
     closeSelectCategory();
   }
@@ -47,7 +46,7 @@ export const CategorySelect: React.FC<CategorySelectProps> = ({
           keyExtractor={(category) => category.key}
           ItemSeparatorComponent={() => <Separator />}
           renderItem={({item}) => (
-            <CategoryWrapper onPress={() => handleChangeCategory(item)} selected={item.key === selectedCategory}>
+            <CategoryWrapper onPress={() => handleChangeCategory(item)} selected={item.name === selectedCategory}>
               <Icon name={item.icon}/>
               <Title>{item.name}</Title>
             </CategoryWrapper>

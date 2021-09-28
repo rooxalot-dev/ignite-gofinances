@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Modal } from 'react-native';
 import { useTheme } from 'styled-components';
 
 import { Header } from '../../Components/Header';
@@ -6,6 +7,8 @@ import { Input } from '../../Components/Forms/Input';
 import { OutlineButton } from '../../Components/Forms/OutlineButton';
 import { Button } from '../../Components/Forms/Button';
 import { CategorySelect } from '../../Components/Forms/CategorySelect';
+
+import { Category, CategorySelect as Categories } from '../CategorySelect';
 
 import { 
   Container,
@@ -17,7 +20,10 @@ import {
 
 export const Register: React.FC = () => {
   const theme = useTheme();
+
+  const [categoryModalVisible, setCategoryModalVisible] = useState(false);
   const [transactionType, setTransactionType] = useState('');
+  const [selectedcategory, setSelectedCategory] = useState('');
 
   const handleChangeTransatcionType = (type: string) => {
     if (transactionType === type) {
@@ -26,6 +32,11 @@ export const Register: React.FC = () => {
     }
 
     setTransactionType(type);
+  };
+
+  const handleSelectCategory = (category: Category) => {
+    console.log('selected Category', category);
+    setSelectedCategory(category.name);
   };
 
   return (
@@ -55,11 +66,26 @@ export const Register: React.FC = () => {
             />
           </TypeWrapper>
 
-          <CategorySelect />
+          <CategorySelect category={selectedcategory} onPress={() => setCategoryModalVisible(true)} />
         </Fields>
 
         <Button title="Enviar" />
       </Form>
+
+
+      <Modal 
+        visible={categoryModalVisible}
+        animationType="slide"
+      >
+        <Categories 
+          category={selectedcategory} 
+          setCategory={handleSelectCategory} 
+          closeSelectCategory={() => {
+            console.log('close modal');
+            setCategoryModalVisible(false);
+          }}
+        />
+      </Modal>
     </Container>
   );
 }

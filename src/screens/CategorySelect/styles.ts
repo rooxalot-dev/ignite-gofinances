@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components/native';
 import { FlatList, TouchableOpacityProps } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
 
 import { Category } from '.';
@@ -10,7 +11,7 @@ type CategoryWrapperProps = TouchableOpacityProps & {
 };
 
 
-export const Container = styled.View`
+export const Container = styled(GestureHandlerRootView)`
   flex: 1;
   justify-content: space-between;
   padding: 16px 0;
@@ -26,7 +27,7 @@ export const CategoryWrapper = styled.TouchableOpacity<CategoryWrapperProps>`
   padding: 8px 16px;
   border-radius: 5px;
   ${({theme, selected}) => selected && css`
-    background-color: ${theme.colors.background}
+    background-color: ${theme.colors.secondaryLight}
   `};
 `;
 
