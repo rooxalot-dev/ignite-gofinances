@@ -40,6 +40,7 @@ export const Fields = styled.View`
 export const TypeWrapper = styled.View`
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 8px;
   margin-bottom: 16px;
 `;
 
