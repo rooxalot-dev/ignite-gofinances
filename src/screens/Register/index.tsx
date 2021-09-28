@@ -1,32 +1,21 @@
 import React, { useState } from 'react';
+import { useTheme } from 'styled-components';
+
+import { Header } from '../../Components/Header';
 import { Input } from '../../Components/Forms/Input';
 import { OutlineButton } from '../../Components/Forms/OutlineButton';
 import { Button } from '../../Components/Forms/Button';
+import { CategorySelect } from '../../Components/Forms/CategorySelect';
 
 import { 
   Container,
-  Header,
-  Title,
   Form,
   Fields,
   ButtonIcon,
-  DropdownWrapper,
-  Dropdown,
-  DropdownItem,
   TypeWrapper
 } from './styles';
-import { useTheme } from 'styled-components';
 
 export const Register: React.FC = () => {
-  const categories = [
-    "Alimentação",
-    "Carro",
-    "Casa",
-    "Vendas",
-    "Trabalho",
-    "Farmacia"
-  ];
-
   const theme = useTheme();
   const [transactionType, setTransactionType] = useState('');
 
@@ -41,9 +30,7 @@ export const Register: React.FC = () => {
 
   return (
     <Container>
-      <Header>
-        <Title>Cadastro</Title>
-      </Header>
+      <Header title="Cadastro"/>
 
       <Form>
         <Fields>
@@ -68,13 +55,7 @@ export const Register: React.FC = () => {
             />
           </TypeWrapper>
 
-          <DropdownWrapper>
-            <Dropdown itemStyle={{ backgroundColor: 'red' }}>
-              {
-                categories.map(category => <DropdownItem key={category} label={category} value={category} />)
-              }
-            </Dropdown>
-          </DropdownWrapper>
+          <CategorySelect />
         </Fields>
 
         <Button title="Enviar" />
