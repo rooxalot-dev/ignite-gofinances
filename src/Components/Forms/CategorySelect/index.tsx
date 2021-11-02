@@ -9,7 +9,7 @@ type CategorySelectProps = TouchableOpacityProps & {
 
 export const CategorySelect: React.FC<CategorySelectProps> = ({category = '', ...rest}: CategorySelectProps) => {
   return (
-    <Container {...rest}>
+    <Container activeOpacity={0.6} {...rest}>
       <Category>{ category === '' ? 'Categoria' : category}</Category>
       <Icon name="chevron-down" />
     </Container>

@@ -6,6 +6,9 @@ import { Feather } from '@expo/vector-icons';
 import { Category } from '.';
 import { RFValue } from 'react-native-responsive-fontsize';
 
+//GestureHandlerRootView
+//Este componente nos ajuda com diferentes comportamentos entre Android e IOS, como no caso de estar dentro de um Modal.
+
 type CategoryWrapperProps = TouchableOpacityProps & {
   selected: boolean;
 };
@@ -44,7 +47,7 @@ export const Icon = styled(Feather)`
 export const Separator = styled.View`
   width: 100%;
   height: 1px;
-  background-color: ${({theme, }) => theme.colors.text};
+  background-color: ${({theme}) => theme.colors.text};
 `;
 
 export const ButtonWrapper = styled.View`

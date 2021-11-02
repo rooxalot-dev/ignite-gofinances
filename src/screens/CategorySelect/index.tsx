@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text } from 'react-native';
+import { Alert, Text } from 'react-native';
 
 import { Header } from '../../Components/Header';
 import { Container, CategoryList, CategoryWrapper, Icon, Title, Separator, ButtonWrapper } from './styles';
@@ -32,8 +32,12 @@ export const CategorySelect: React.FC<CategorySelectProps> = ({
 
   const handleSelectCategory = () => {
     const category = categories.find((category) => category.name === selectedCategory);
-    setCategory(category as Category);
-    closeSelectCategory();
+    if (category) {
+      setCategory(category as Category);
+      closeSelectCategory();
+    } else {
+      Alert.alert('Selecione uma categoria para prosseguir');
+    }
   }
 
   return (
