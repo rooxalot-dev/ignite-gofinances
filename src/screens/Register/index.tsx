@@ -74,7 +74,7 @@ export const Register: React.FC = () => {
         transactionType,
         category: selectedcategory
       };
-      
+
       console.log('data', data);
     };
 
@@ -95,19 +95,19 @@ export const Register: React.FC = () => {
           <Fields>
             <FormInput 
               control={control}
-              errors={errors}
               name="name" 
               placeholder="Nome"
               autoCapitalize="sentences"
               autoCorrect={false}
+              error={errors && errors.name && errors.name.message}
             />
 
             <FormInput 
               control={control}
-              errors={errors}
               name="amount"
               placeholder="Preço"
               keyboardType="numeric"
+              error={errors && errors.amount && errors.amount.message}
             />
 
             <TypeWrapper>

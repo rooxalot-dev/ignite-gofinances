@@ -9,14 +9,10 @@ import { Container, Error } from './styles';
 type FormInputProps = TextInputProps & {
   control: Control;
   name: string;
-  errors?: null | {
-    [key: string]: any;
-  }
+  error?: string;
 };
 
-export const FormInput: React.FC<FormInputProps> = ({ control, name, errors, ...rest }: FormInputProps) => {
-  const error = errors && errors[name]?.message;
-
+export const FormInput: React.FC<FormInputProps> = ({ control, name, error, ...rest }: FormInputProps) => {
   return (
     <Container>
       <Controller
