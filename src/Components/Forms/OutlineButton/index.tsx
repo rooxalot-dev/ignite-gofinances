@@ -1,9 +1,9 @@
 import React from 'react';
-import { TouchableOpacityProps } from 'react-native';
+import { RectButtonProps } from 'react-native-gesture-handler';
 
-import { Container, ButtonText } from './styles';
+import { Container, ContainerBorderHelper, ButtonText } from './styles';
 
-type OutlineButtonProps = TouchableOpacityProps & {
+type OutlineButtonProps = RectButtonProps & {
   title: string;
   checked?: boolean;
   checkedBackgroundColor?: string;
@@ -19,8 +19,10 @@ export const OutlineButton: React.FC<OutlineButtonProps> = ({
 }: OutlineButtonProps) => {
   return (
     <Container activeOpacity={0.7} checked={checked} checkedBackgroundColor={checkedBackgroundColor} { ...rest }>
-      { Icon && <Icon /> }
-      <ButtonText>{title}</ButtonText>
+      <ContainerBorderHelper checked={checked}>
+        { Icon && <Icon /> }
+        <ButtonText>{title}</ButtonText>
+      </ContainerBorderHelper>
     </Container>
   );
 }

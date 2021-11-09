@@ -5,6 +5,7 @@ import { getBottomSpace, getStatusBarHeight } from 'react-native-iphone-x-helper
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 
 import { Transaction } from '../../models/Transaction';
+import { BorderlessButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
     flex: 1;
@@ -28,7 +29,7 @@ export const HeaderWrapper = styled.View`
     margin-bottom: 24px;
 `;
 
-export const LogoutButton = styled.TouchableOpacity`
+export const LogoutButton = styled(BorderlessButton)`
     
 `;
 

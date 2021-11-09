@@ -12,9 +12,6 @@ import {
 
 import theme from './src/global/styles/theme';
 
-import { Dashboard } from './src/screens/Dashboard';
-import { Register } from './src/screens/Register';
-import { CategorySelect } from './src/screens/CategorySelect';
 import { AppRoutes } from './src/app.routes';
 
 export default function App() {

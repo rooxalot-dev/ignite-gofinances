@@ -1,13 +1,19 @@
-import { TouchableOpacityProps } from 'react-native';
-import styled from 'styled-components/native';
+import { Platform, TouchableOpacityProps, ViewProps } from 'react-native';
+import styled, { css } from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
+import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 
-type OutlineButtonProps = TouchableOpacityProps & {
+type OutlineButtonProps = RectButtonProps & {
   checked: boolean;
   checkedBackgroundColor?: string;
 };
 
-export const Container = styled.TouchableOpacity<OutlineButtonProps>`
+type ContainerBorderHelper = ViewProps & {
+  checked: boolean;
+  checkedBackgroundColor?: string;
+};
+
+export const Container = styled(RectButton)<OutlineButtonProps>`
   flex: 1;
   flex-direction: row;
   justify-content: center;
@@ -22,6 +28,21 @@ export const Container = styled.TouchableOpacity<OutlineButtonProps>`
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.text};
   border-radius: 5px;
+`;
+
+export const ContainerBorderHelper = styled.View<ContainerBorderHelper>`
+  ${() => Platform.OS !== 'ios' && css<ContainerBorderHelper>`
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-width: ${({ checked }) => !checked ? 1 : 0}px;
+    border-style: solid;
+    border-color: ${({ theme }) => theme.colors.text};
+    border-radius: 5px;
+  ` }
 `;
 
 export const ButtonText = styled.Text`
